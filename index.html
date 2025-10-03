@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="shortcut icon" type="x-icon" href="https://i.postimg.cc/5N8K8Sjd/Chat-GPT-Image-Oct-3-2025-04-13-31-PM.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriView - NASA-Powered Sustainable Farming Platform</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #10b981;
+            --primary-dark: #059669;
+            --secondary: #3b82f6;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --gray-light: #f1f5f9;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--dark-light) 100%);
+            color: var(--white);
+            padding: 80px 20px 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(16, 185, 129, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+        }
+
+        .hero p {
+            font-size: clamp(1.1rem, 2vw, 1.3rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .badge-group {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 32px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .badge:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Feature Grid */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            margin-top: 48px;
+        }
+
+        .feature-card {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            background: var(--gray-light);
+        }
+
+        .steps {
+            display: grid;
+            gap: 48px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+
+        .step-content p {
+            color: var(--gray);
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .step-content ul {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .step-content li {
+            color: var(--gray);
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 12px;
+            line-height: 1.7;
+        }
+
+        .step-content li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        /* Screenshots */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .screenshot-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        .screenshot-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .screenshot-placeholder {
+            width: 100%;
+            height: 240px;
+            background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary);
+        }
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+
+        .screenshot-info {
+            padding: 24px;
+        }
+
+        .screenshot-info h4 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .screenshot-info p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        .video-container {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, var(--dark-light) 0%, var(--dark) 100%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            border: 2px dashed rgba(255, 255, 255, 0.2);
+        }
+
+        .video-placeholder span {
+            font-size: 4rem;
+        }
+
+        /* Team Section */
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 32px;
+        }
+
+        .team-member {
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .team-member:hover {
+            transform: translateY(-8px);
+        }
+
+        .member-avatar {
+            width: 140px;
+            height: 140px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            margin: 0 auto 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+            overflow: hidden;
+        }
+
+        .member-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .member-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.7);
+            padding: 60px 20px 40px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 16px;
+        }
+
+        .footer-text {
+            font-size: 1rem;
+            margin-bottom: 32px;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 32px;
+            margin-top: 40px;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .step {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .step-number {
+                width: 56px;
+                height: 56px;
+                font-size: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content animate-fade-in">
+                <h1>AgriView</h1>
+                <p>Revolutionizing sustainable farming in Bangladesh with NASA-powered Earth observation data and intelligent simulation technology</p>
+                
+                <div class="badge-group">
+                    <div class="badge">
+                        <span>🛰️</span>
+                        <span>NASA POWER API</span>
+                    </div>
+                    <div class="badge">
+                        <span>🌍</span>
+                        <span>SMAP Data</span>
+                    </div>
+                    <div class="badge">
+                        <span>📡</span>
+                        <span>MODIS NDVI</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Empowering Data-Driven Agriculture</h2>
+                <p>AgriView is an advanced educational platform that transforms NASA satellite data into actionable farming insights for Bangladesh's agricultural sector</p>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛰️</div>
+                    <h3>Real-Time NASA Data</h3>
+                    <p>Access live climate metrics, soil moisture levels, and vegetation health indices from NASA's Earth observation systems</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>Smart Simulation Engine</h3>
+                    <p>Interactive farming scenarios that predict crop yields based on your irrigation and fertilization decisions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>Advanced Analytics</h3>
+                    <p>Comprehensive visualizations of climate patterns, soil conditions, and sustainability metrics</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌱</div>
+                    <h3>Sustainability Focus</h3>
+                    <p>Learn to balance maximum yield with environmental conservation for long-term farm health</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How AgriView Works</h2>
+                <p>A comprehensive platform built on cutting-edge technology and real-world agricultural science</p>
+            </div>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Intuitive User Interface</h3>
+                        <p>Make informed decisions through our streamlined dashboard:</p>
+                        <ul>
+                            <li>Select climate-appropriate crops (Rice or Maize)</li>
+                            <li>Adjust irrigation levels with precision controls</li>
+                            <li>Optimize fertilizer application rates</li>
+                            <li>Run comprehensive season simulations instantly</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Advanced Simulation Engine</h3>
+                        <p>Our algorithm analyzes multiple factors to predict outcomes:</p>
+                        <ul>
+                            <li>3-month historical NASA climate data (rainfall & temperature)</li>
+                            <li>User-defined irrigation and fertilization strategies</li>
+                            <li>Crop-specific parameters including water needs and drought resistance</li>
+                            <li>Sustainability optimization balancing yield and resource conservation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>NASA Data Integration</h3>
+                        <p>Powered by three critical satellite data sources:</p>
+                        <ul>
+                            <li><strong>POWER API:</strong> Historical rainfall and temperature data for Dhaka coordinates</li>
+                            <li><strong>SMAP:</strong> Real-time soil moisture monitoring in the root zone</li>
+                            <li><strong>MODIS:</strong> NDVI vegetation index for crop health assessment</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Intelligent Feedback System</h3>
+                        <p>Receive actionable recommendations when:</p>
+                        <ul>
+                            <li>Sustainability thresholds are at risk</li>
+                            <li>Yields can be optimized through resource adjustment</li>
+                            <li>Over-irrigation or excessive fertilization is detected</li>
+                            <li>Climate conditions suggest alternative strategies</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Platform Preview</h2>
+                <p>Experience the interface designed for clarity, insight, and impact</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder"><img src="https://i.postimg.cc/ZKYBz5ms/Screenshot-2025-10-03-153912.png"></div>
+                    <div class="screenshot-info">
+                        <h4>Control Dashboard</h4>
+                        <p>Intuitive crop selection and resource management controls</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder"><img src="https://i.postimg.cc/DyFXBcmY/Screenshot-2025-10-03-154646.png"></div>
+                    <div class="screenshot-info">
+                        <h4>Climate Analytics</h4>
+                        <p>Real-time NASA rainfall and temperature visualizations</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder"><img src="https://i.postimg.cc/C5KVxtmn/Screenshot-2025-10-03-154818.png"></div>
+                    <div class="screenshot-info">
+                        <h4>Performance Metrics</h4>
+                        <p>Comprehensive yield and sustainability scoring</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder"><img src="https://i.postimg.cc/qR5125pn/Screenshot-2025-10-03-144457.png"></div>
+                    <div class="screenshot-info">
+                        <h4>SMAP Integration</h4>
+                        <p>Soil moisture monitoring with temporal trends</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder"><img src="https://i.postimg.cc/QtQpdYHH/Screenshot-2025-10-03-155029.png"></div>
+                    <div class="screenshot-info">
+                        <h4>NDVI Tracking</h4>
+                        <p>MODIS vegetation health and crop vigor indices</p>
+                    </div>
+                </div>
+                <div class="screenshot-card">
+                    <div class="screenshot-placeholder"><img src="https://i.postimg.cc/2Sjmc1Qm/Screenshot-2025-10-03-155335.png"></div>
+                    <div class="screenshot-info">
+                        <h4>Educational Mode</h4>
+                        <p>Interactive learning modules explaining NASA data</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Demo -->
+    <section class="video-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 style="color: white;">See AgriView in Action</h2>
+                <p style="color: rgba(255, 255, 255, 0.8);">Watch our comprehensive platform demonstration</p>
+            </div>
+            
+            <div class="video-container">
+                <div class="video-placeholder">
+                    <span>🎬</span>
+                    <div style="text-align: center;">
+                        <p style="font-size: 1.2rem; margin-bottom: 8px;">Demo Video</p>
+                        <p style="font-size: 0.9rem; opacity: 0.7;">Replace with your YouTube embed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section>
+        <div class="container">
+            <div class="section-header">
+                <h2>Team AgriSense</h2>
+                <p>Meet the innovators bringing NASA data to Bangladesh's farmers</p>
+            </div>
+
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="https://i.postimg.cc/j5LbsyDh/Whats-App-Image-2025-10-03-at-15-01-55-21899098.jpg" alt="Team Member 1">
+                    </div>
+                    <div class="member-name">Team Member 1</div>
+                    <div class="member-role">Project Lead</div>
+
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="https://i.postimg.cc/JhT8Vpzt/Whats-App-Image-2025-10-03-at-15-02-16-a976ad7a.jpg" alt="Team Member 2">
+                    </div>
+                    <div class="member-name">Team Member 2</div>
+                    <div class="member-role">Script Writter</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="https://i.postimg.cc/k4BmnW2b/Whats-App-Image-2025-10-03-at-15-02-35-61e94562.jpg" alt="Team Member 3">
+                    </div>
+                    <div class="member-name">Team Member 3</div>
+                    <div class="member-role">UX/UI Designer</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="https://i.postimg.cc/Xv2WSsYn/Whats-App-Image-2025-10-03-at-15-02-51-ff786a73.jpg" alt="Team Member 4">
+                    </div>
+                    <div class="member-name">Team Member 4</div>
+                    <div class="member-role">Video Editor</div>
+                </div>
+                <div class="team-member">
+                    <div class="member-avatar">
+                        <img src="https://i.postimg.cc/50c30V06/Zuhayer.jpg" alt="Team Member 5">
+                    </div>
+                    <div class="member-name">Team Member 5</div>
+                    <div class="member-role">App Developer</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Explore the Code</h2>
+            <p>AgriView is open-source. Join our mission to democratize agricultural technology.</p>
+            <a href="https://github.com/Electro121/NASA-Space-App-Challenge-2025" class="btn btn-primary">
+                <span>View on GitHub</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">AgriView</div>
+            <p class="footer-text">Cultivating sustainable futures with NASA-powered insights</p>
+            <p class="footer-text">Developed by Team AgriSense</p>
+            <div class="footer-bottom">
+                <p>Built for NASA Space Apps Challenge 2025</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
